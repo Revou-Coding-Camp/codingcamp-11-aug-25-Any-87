@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pojok Kopi Indonesia</title>
+
+    <!-- Tailwind CDN -->
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+     <!-- CSS -->
+      <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body class="bg-krem text-kopi font-sans transition-colors duration-300">
+
+    <!-- Navbar -->
+     <header class="bg-kopi text-krem shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-betwen items-center p-4">
+            <!-- Logo -->
+             <div class="flex items-center space-x-2">
+                <img src="img/download.png" alt="Logo" class="w-8 h-8">
+                <h1 class="text-xl font-bold">Pojok Kopi Indonesia</h1>
+             </div>
+
+             <!-- Menu -->
+              <nav id="navMenu" 
+              class="flex space-x-6 ml-auto">
+              <a href="#beranda" class="hover:text-emas">Beranda</a>
+              <a href="#menu" class="hover:text-emas">Menu</a>
+              <a href="#pesan" class="hover:text-emas">Pesan</a>
+              <a href="#kontak" class="hover:text-emas">Kontak</a>
+              </nav>
+
+              <!-- Tombol Mode & Menu -->
+               <div class="flex items-center space-x-16">
+                <button id="darkModeBtn"
+                class="bg-none text-kopi px-2 py-1 rounded">🌙</button>
+                <button id="menuBtn" class="md:hidden bg-none text-kopi px-2 py-1 rounded">🚥</button>
+               </div>
+        </div>
+     </header>
+
+     <!-- Hero Section -->
+        <section id="beranda" class="text-center py-20 bg-cover bg-center" style="background-image: url('img/download.jpg');">
+        <div class="bg-black bg-opacity-40 inline-block p-8 rounded-lg">
+            <h2 class="text-4xl md:text-5xl font-bold text-emas mb-4">Selamat Datang di Pojok Warung Indonesia</h2>
+            <p class="text-krem text-lg">Kopi klasik dengan sentuhan opini oposisi</p>
+        </div>
+      </section>
+
+      <!-- Menu Section -->
+       <section id="menu" class="py-16 container mx-auto">
+        <h3 class="text-3xl font-bold text-center mb-10">Menu Favorit</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/download (2).jpg" alt="Esspresso" class="rounded-lg mb-4">
+                <h4 class="font-bold text-xl mb-4">Esspresso</h4>
+                <p class="text-gray-600">Kopi Pekat Mensikat Penjabat</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/download (3).jpg" alt="Latte" class="rounded-lg mb-4">
+                <h4 class="font-bold text-xl mb-4">Latte</h4>
+                <p class="text-gray-600">Perpaduan Kopi dan Susu untuk menertawakan Penjabat yang lucu</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/download (4).jpg" alt="Cappucino" class="rounded-lg mb-4">
+                <h4 class="font-bold text-xl mb-4">Cappucino</h4>
+                <p class="text-gray-600">Kopi Susu dengan busa dari mulut-mulut Penjabat</p>
+            </div>
+        </div>
+       </section>
+
+       <!-- Form Pesan -->
+        <section id="pesan" class="bg-emas py-16">
+            <div class="container mx-auto max-w-lg bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-6 text-center">Pesan Kopi</h3>
+                <form id="orderform" class="space-y-4">
+                    <div>
+                        <label class="block font-semibold mb-1">Nama</label>
+                        <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda"  class="w-full border border-gray-300 rounded-lg p-2" required>
+                    </div>
+                    <div>
+                         <label for="menuKopi">Pilih Menu</label>
+                         <select  id="menuKopi" name="menuKopi"  class="w-full border border-gray-300 rounded-lg p-2" required>
+                            <option value="">Pilih Menu</option>
+                                <option>Esspresso</option>
+                                <option>Latte</option>
+                                <option>Cappucino</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="jumlah">Jumlah</label>
+                        <input type="number" id="jumlah" name="jumlah" min="1" class="w-full border border-gray-300 rounded-lg p-2" min="1" required>
+                    </div>
+                    <button type="submit" class="bg-kopi text-white py-2 px-4 rounded-lg hover:bg-emas hover:text-kopi transition">Pesan Sekarang</button>
+                </form>
+            </div>
+        </section>
+
+        <!--Pesanan Berhasil --> 
+        <div id="succesModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center 
+        justify-center hidden">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm w-full">
+                <h4 class="text-xl font-bold mb-2">Pesanan Berhasil</h4>
+                <p id="modalText" class="mb-4"></p>
+                <button id="closeModal" class="bg-kopi text-white px-4 py-2 rounded hover:bg-emas hover:text-kopi">Tutup</button>
+            </div>
+        </div>
+
+        <!--Footer -->
+        <footer id="kontak" class="bg-kopi text-krem text-center p-6">
+            <p>📍Jl. Kopi No.21 Jakarta</p>
+            <p>📞081315386420</p>
+            <p>📧anyriyanto@gmail.com</p>
+            <p>&copy; 2025 Pojok Kopi Indonesia</p>
+        </footer>
+
+        <script src="js/script.js"></script>
+    
+</body>
+</html>
